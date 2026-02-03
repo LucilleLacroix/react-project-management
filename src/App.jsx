@@ -21,9 +21,10 @@ function App() {
 
   function handleAddProject(projectData) {
     setProjectsState((prevState) => {
+      const projectId = Math.random();
       const newProject = {
         ...projectData,
-        id: Math.random(),
+        id: projectId,
       };
 
       return {
@@ -33,7 +34,7 @@ function App() {
       };
     });
   }
-  console.log(projectsState);
+ 
   let content;
   if (projectsState.selectedProjectID === null) {
     content = <NewProject onAdd={handleAddProject} />;
